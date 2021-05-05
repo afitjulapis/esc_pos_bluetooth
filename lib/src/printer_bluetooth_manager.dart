@@ -115,12 +115,14 @@ class PrinterBluetoothManager {
             }
 
             completer.complete(PosPrintResult.success);
+            _isPrinting = false;
           }
           // TODO sending disconnect signal should be event-based
-          _runDelayed(3).then((dynamic v) async {
-            await _bluetoothManager.disconnect();
-            _isPrinting = false;
-          });
+//           _runDelayed(3).then((dynamic v) async {
+//             await _bluetoothManager.disconnect();
+            
+//           });
+          
           _isConnected = true;
           break;
         case BluetoothManager.DISCONNECTED:
