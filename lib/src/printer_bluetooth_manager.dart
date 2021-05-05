@@ -70,6 +70,10 @@ class PrinterBluetoothManager {
   void selectPrinter(PrinterBluetooth printer) {
     _selectedPrinter = printer;
   }
+  
+  void connectPrinter(){
+    _bluetoothManager.connect(_selectedPrinter._device)
+  }
 
   Future<PosPrintResult> writeBytes(
     List<int> bytes, {
@@ -90,11 +94,11 @@ class PrinterBluetoothManager {
     _isPrinting = true;
 
     // We have to rescan before connecting, otherwise we can connect only once
-    await _bluetoothManager.startScan(timeout: Duration(seconds: 1));
-    await _bluetoothManager.stopScan();
+//     await _bluetoothManager.startScan(timeout: Duration(seconds: 1));
+//     await _bluetoothManager.stopScan();
 
     // Connect
-    await _bluetoothManager.connect(_selectedPrinter._device);
+//     await _bluetoothManager.connect(_selectedPrinter._device);
 
     // Subscribe to the events
     _bluetoothManager.state.listen((state) async {
