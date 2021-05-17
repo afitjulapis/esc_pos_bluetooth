@@ -122,10 +122,10 @@ class PrinterBluetoothManager {
             _isPrinting = false;
           }
           // TODO sending disconnect signal should be event-based
-//           _runDelayed(3).then((dynamic v) async {
-//             await _bluetoothManager.disconnect();
-            
-//           });
+          _runDelayed(3).then((dynamic v) async {
+            await _bluetoothManager.disconnect();
+            _isPrinting = false;
+          });
           
           _isConnected = true;
           break;
@@ -138,12 +138,12 @@ class PrinterBluetoothManager {
     });
 
     // Printing timeout
-    _runDelayed(timeout).then((dynamic v) async {
-      if (_isPrinting) {
-        _isPrinting = false;
-        completer.complete(PosPrintResult.timeout);
-      }
-    });
+//     _runDelayed(timeout).then((dynamic v) async {
+//       if (_isPrinting) {
+//         _isPrinting = false;
+//         completer.complete(PosPrintResult.timeout);
+//       }
+//     });
 
     return completer.future;
   }
