@@ -72,7 +72,7 @@ class PrinterBluetoothManager {
   }
   
   void connectPrinter(){
-    _bluetoothManager.connect(_selectedPrinter._device)
+    _bluetoothManager.connect(_selectedPrinter._device);
   }
 
   Future<PosPrintResult> writeBytes(
