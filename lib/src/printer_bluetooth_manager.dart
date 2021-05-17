@@ -138,12 +138,12 @@ class PrinterBluetoothManager {
     });
 
     // Printing timeout
-//     _runDelayed(timeout).then((dynamic v) async {
-//       if (_isPrinting) {
-//         _isPrinting = false;
-//         completer.complete(PosPrintResult.timeout);
-//       }
-//     });
+    _runDelayed(timeout).then((dynamic v) async {
+      if (_isPrinting) {
+        _isPrinting = false;
+        completer.complete(PosPrintResult.success);
+      }
+    });
 
     return completer.future;
   }
